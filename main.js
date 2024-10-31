@@ -1,35 +1,21 @@
-const productsMap = {
-    "product1": {price: 50},
-    "product2": {price: 100},
-    "product3": {price: 120}
-}; 
+document.addEventListener('DOMContentLoaded', function () {
+    const calculateBtn = document.getElementById('calculateBtn');
+    const quantityInput = document.getElementById('quantity');
+    const productSelect = document.getElementById('product');
+    const resultDiv = document.getElementById('result');
 
-window.addEventListener("DOMContentLoaded", function () {
-    const quantityInput = document.getElementById("quantityInput");
-    const Select = document.getElementById("select");
-    const button = document.getElementById("calculate")
-    const answerDiv = document.getElementById("answerDiv");
-    const render = (price) => {
-        if (isNaN(price)) {
-            answerDiv.innerText = `Некорректный ввод`;
-        } else {
-            answerDiv.innerText =
-                `Стоимость: ${price}`;
+    calculateBtn.addEventListener('click', function () {
+        const quantity = quantityInput.value;
+        const productPrice = parseInt(productSelect.value);
+        
+        // Проверка корректности ввода количества товара
+        const quantityRegex = /^[1-9]\d*$/;
+        if (!quantityRegex.test(quantity)) {
+            resultDiv.innerHTML = '<span style="color: red;">Ошибка: введите корректное количество товара.</span>';
+            return;
         }
-    }
-    const calc = (quantity) => {
-        if(quantity === "")
-            return 0;
-        else if (/^[0-9]+$/.test(quantity)) {
-            return productsMap[Select.value].price * quantity;
-        } else {
-            return NaN;
-        }
-    };
 
-    button.addEventListener("click", (ev)=>{
-        if(Select.value)
-            render(calc(quantityInput.value))
-    })
-
+        const totalPrice = productPrice * parseInt(quantity);
+        resultDiv.innerHTML = `Стоимость заказа: ${totalPrice} руб.`;
+    });
 });
