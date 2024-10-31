@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Проверка корректности ввода количества товара
         const quantityRegex = /^[1-9]\d*$/;
         if (!quantityRegex.test(quantity)) {
-            resultDiv.innerHTML = '<span style="color: red;">Ошибка: введите корректное количество товара.</span>';
+            resultDiv.innerHTML = '<span style="color: red;">Ошибка: введено некорректное количество товара!</span>';
             return;
         }
 
