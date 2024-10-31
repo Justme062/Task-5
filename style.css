@@ -1,8 +1,8 @@
 body {
-    background-color: darkseagreen; /* цвет фона*/
+    background-color: darkseablue; /* цвет фона*/
 }
 #quantityInput{
-    background-color: darkslateblue; /* цвет фона ввода количества */
+    background-color: darkslatepink; /* цвет фона ввода количества */
     border-radius: 5px;
     border: 5px;
 }
@@ -39,7 +39,7 @@ form label {
 }
 
 #answerDiv {
-    background-color: midnightblue; /* цвет фона ответа */
+    background-color: midnightpink; /* цвет фона ответа */
     color: mintcream; /* цвет текста калькулятора */
 }
 
